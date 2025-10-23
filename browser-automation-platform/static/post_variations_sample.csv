@@ -1,0 +1,3 @@
+identifier,title,body,target_group
+sample-1,Sample Post 1,This is a sample post body for automation testing.,Sample Group A
+sample-2,Sample Post 2,Another sample line to illustrate the CSV format.,Sample Group B

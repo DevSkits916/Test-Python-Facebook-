@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Campaign Configuration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Campaign Configuration</h1>
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('configuration_page') }}" class="active">Configuration</a>
+        <a href="{{ url_for('results_page') }}">Results</a>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>Automation Parameters</h2>
+        <form class="config-form" id="config-form">
+            <div class="field">
+                <label for="headless">Headless Mode</label>
+                <select id="headless" name="headless">
+                    <option value="true" selected>Enabled</option>
+                    <option value="false">Disabled</option>
+                </select>
+            </div>
+            <div class="field">
+                <label for="implicit_wait">Implicit Wait (seconds)</label>
+                <input type="number" id="implicit_wait" name="implicit_wait" value="10" min="1" max="60">
+            </div>
+            <div class="field">
+                <label for="platform">Platform Base URL</label>
+                <input type="url" id="platform" name="platform" placeholder="https://www.social-platform.com">
+            </div>
+            <div class="field">
+                <label for="mobile_user_agents">Mobile User Agents (JSON array)</label>
+                <textarea id="mobile_user_agents" name="mobile_user_agents" rows="4" placeholder='["UA1", "UA2"]'></textarea>
+            </div>
+            <button type="submit" class="primary">Save Configuration</button>
+        </form>
+        <p id="config-feedback"></p>
+    </section>
+    <section>
+        <h2>Content Library</h2>
+        <p>Content is sourced from <code>data/post_variations.csv</code>. Ensure 50+ unique entries are maintained for rotation.</p>
+        <a class="primary" href="/static/post_variations_sample.csv" download>Download Sample CSV</a>
+    </section>
+</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
