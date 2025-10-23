@@ -1,0 +1,1 @@
+-r browser-automation-platform/requirements.txt
