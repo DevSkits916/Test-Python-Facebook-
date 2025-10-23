@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automation Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Automation Results</h1>
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('configuration_page') }}">Configuration</a>
+        <a href="{{ url_for('results_page') }}" class="active">Results</a>
+    </nav>
+</header>
+<main>
+    <section>
+        <h2>Campaign Summary</h2>
+        <ul>
+            <li><strong>Status:</strong> <span id="result-status">{{ state.status }}</span></li>
+            <li><strong>Message:</strong> <span id="result-message">{{ state.message }}</span></li>
+            <li><strong>Progress:</strong> <span id="result-progress">{{ state.progress }}%</span></li>
+            <li><strong>Last Update:</strong> <span id="result-timestamp">{{ state.last_update }}</span></li>
+        </ul>
+    </section>
+    <section>
+        <h2>Live Feed</h2>
+        <div id="results-log" class="log"></div>
+    </section>
+</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

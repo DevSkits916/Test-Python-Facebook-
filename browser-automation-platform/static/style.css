@@ -1,0 +1,150 @@
+:root {
+    --primary: #1a73e8;
+    --danger: #d93025;
+    --background: #f8f9fa;
+    --text: #202124;
+    --card: #ffffff;
+    --border: #dadce0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+}
+
+header {
+    background: var(--primary);
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav a {
+    color: #fff;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a.active {
+    text-decoration: underline;
+}
+
+main {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+section {
+    background: var(--card);
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.controls form,
+.config-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input,
+textarea,
+select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button.primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+button.danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.log {
+    height: 320px;
+    overflow-y: auto;
+    background: #0c0d0f;
+    color: #e8eaed;
+    padding: 1rem;
+    border-radius: 6px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+}
+
+.log-entry {
+    margin-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 0.5rem;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.log-entry .meta {
+    color: #a8adb7;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.log-entry.success {
+    color: #81c995;
+}
+
+.log-entry.error {
+    color: #f28b82;
+}
+
+.log-entry.warning {
+    color: #fdd663;
+}
+
+.log-entry.info {
+    color: #8ab4f8;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}

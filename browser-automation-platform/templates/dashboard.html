@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Automation Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+    <h1>Browser Automation Platform</h1>
+    <nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('configuration_page') }}">Configuration</a>
+        <a href="{{ url_for('results_page') }}">Results</a>
+    </nav>
+</header>
+<main>
+    <section class="status-panel">
+        <h2>Current Status</h2>
+        <p><strong>State:</strong> <span id="status-text">{{ state.status }}</span></p>
+        <p><strong>Message:</strong> <span id="status-message">{{ state.message }}</span></p>
+        <p><strong>Progress:</strong> <span id="status-progress">{{ state.progress }}%</span></p>
+        <p><strong>Last Update:</strong> <span id="status-timestamp">{{ state.last_update }}</span></p>
+    </section>
+
+    <section class="controls">
+        <h2>Automation Controls</h2>
+        <form id="start-form">
+            <div class="field">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="field">
+                <label for="platform">Platform URL</label>
+                <input type="url" id="platform" name="platform" placeholder="https://www.social-platform.com" required>
+            </div>
+            <button type="submit" class="primary">Start Campaign</button>
+        </form>
+        <button id="stop-button" class="danger">Emergency Stop</button>
+        <p id="control-feedback"></p>
+    </section>
+
+    <section>
+        <h2>Live Monitor</h2>
+        <div id="live-log" class="log"></div>
+    </section>
+</main>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
